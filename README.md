@@ -12,30 +12,30 @@ Desenvolver e testar habilidades em Linux, AWS e automação de processos atrav�
 - 2 sub-redes privadas (para futuras expansões).
 - Uma Internet Gateway conectada às sub-redes públicas.
 
-![VPC](vpc.png)
+![VPC](/imgs/vpc.png)
 
 #### Crie uma Chave PEM
 Para criá-la, você pode criar na hora de criar a instância, ou até posteriormente:
 
-![Criação de Chave PEM](Pasted image 20250224152046.png)
+![Criação de Chave PEM](/imgs/createkeypair.png)
 
 Vá em EC2 > Key Pairs, e clique em Criar key pair.  
 Sua chave precisa ser RSA e ter o formato de arquivo `.PEM`.
 
-![Formato PEM](Pasted image 20250224152209.png)
+![Formato PEM](/imgs/keypairs.png)
 
 ---
 
 ### 2. Criar uma instância EC2 na AWS:
-![Criação de Instância EC2](launchinstance.png)
+![Criação de Instância EC2](/imgs/launchinstance.png)
 
 #### Opcionalmente selecionar TAGS para o monitoramento da Instância:
-![Tags da Instância](tags.png)
+![Tags da Instância](/imgs/tags.png)
 
 #### Escolher uma AMI baseada em Linux:
 Selecione uma AMI baseada em Linux (Ubuntu/Debian/Amazon Linux). Ela será o sistema em que você configurará sua instância. Aqui selecionarei a do Ubuntu Linux.
 
-![AMI do Ubuntu](ami.png)
+![AMI do Ubuntu](/imgs/ami.png)
 
 #### Configuração de rede:
 - Instalar na sub-rede pública criada anteriormente.
@@ -44,39 +44,39 @@ Selecione uma AMI baseada em Linux (Ubuntu/Debian/Amazon Linux). Ela será o sis
 - Em "Auto-assign public IP", marque "Enable".
 - Associar um Security Group EXISTENTE que permita tráfego HTTP (porta 80) e SSH (porta 22, opcional).
 
-![Configuração de Rede](networkinstance.png)
+![Configuração de Rede](/imgs/networkinstance.png)
 
 ---
 
 ### 3. Acessar a instância via SSH para realizar configurações futuras:
 No exemplo acima, mostro as configurações de INBOUND e OUTBOUND utilizadas para que a instância tenha seu grupo de segurança devidamente preparado.
 
-![Configuração de Security Group](sginstance 1.png)
+![Configuração de Security Group](/imgs/sginstance 1.png)
 
 #### Existem dois meios para a configuração de um Security Group:
 1. Ao selecionar a aba de "Security" nos detalhes da sua instância.
 2. Configurar fora da instância, indo em EC2 > Security Groups.
 
-![Edição de Security Group](instanceseditsg.png)
-![Security Groups](sg.png)
+![Edição de Security Group](/imgs/instanceseditsg.png)
+![Security Groups](/imgs/sg.png)
 
 #### Ao selecionar seu Security Group, ele exibirá seus detalhes, onde você deve configurar as Inbound Rules:
-![Inbound Rules](inboundrules.png)
+![Inbound Rules](/imgs/inboundrules.png)
 
 #### Suas configurações nesta seção seguem este padrão:
 - **HTTP** com "Anywhere - IPV4".
 - **SSH** com seu "my IP".
 
-![Configuração de Inbound Rules](editinboundrules.png)
+![Configuração de Inbound Rules](/imgs/editinboundrules.png)
 
 #### Para configurar as Outbound Rules é o mesmo princípio:
-![Outbound Rules](outboundrules.png)
+![Outbound Rules](/imgs/outboundrules.png)
 
 #### E suas regras serão as seguintes:
 - **HTTP** com "Anywhere - IPV4".
 - **HTTPS** com "Anywhere - IPV4".
 
-![Configuração de Outbound Rules](editoutboundrules.png)
+![Configuração de Outbound Rules](/imgs/editoutboundrules.png)
 
 Isso serve para fazer com que sua Instância tenha as configurações de segurança devidas que permitam a iniciação de um serviço, como o NGINX no nosso caso.  
 As Inbound rules são as configurações de entrada, e as Outbounds de saída. Se elas não forem devidamente alteradas, seu projeto não funcionará.
@@ -90,20 +90,20 @@ Na configuração anterior, selecionamos a AMI do Ubuntu, onde você pode utiliz
 
 #### Seus requisitos são:
 - Instalar tanto quanto as versões mais recentes do Ubuntu e do WSL na Microsoft Store:
-![Ubuntu na Microsoft Store](ubuntustore.png)
-![WSL na Microsoft Store](WSL.png)
+![Ubuntu na Microsoft Store](/imgs/ubuntustore.png)
+![WSL na Microsoft Store](/imgs/WSL.png)
 
 - É necessário possuir também o Visual Studio Code instalado com as seguintes extensões:
-![Extensões do VS Code](extensoesvscode.png)
-![Extensões do VS Code](extensoesvscode2.png)
+![Extensões do VS Code](/imgs/extensoesvscode.png)
+![Extensões do VS Code](/imgs/extensoesvscode2.png)
 
 Geralmente só de instalar a "Remote - SSH" e a "WSL" todos os outros são instalados, mas é interessante verificar.
 
 #### Posteriormente, selecione o ícone "><":
-![Conexão ao WSL](aspinhas.png)
+![Conexão ao WSL](/imgs/aspinhas.png)
 
 #### E, clique em Connect to WSL:
-![Connect to WSL](connecttowsl.png)
+![Connect to WSL](/imgs/connecttowsl.png)
 
 #### Retorne por um instante na AWS:
 1. No EC2, marque sua instância e clique em "Connect".
@@ -112,7 +112,7 @@ Geralmente só de instalar a "Remote - SSH" e a "WSL" todos os outros são insta
 
 Sim, para se conectar a sua AMI da instância é um simples copia e cola. Mas guarde bem o seu link, pois com ele qualquer um acessa e configura sua instância. Lembre-se também de dar permissão para sua chave PEM, usando o comando `chmod` como mostra abaixo.
 
-![Configuração SSH](configssh.png)
+![Configuração SSH](/imgs/configssh.png)
 
 ---
 
@@ -123,12 +123,12 @@ Após a instalação, esse é o caminho para o arquivo da sua página web, onde 
 
 Para verificar se seu NGINX está funcionando apropriadamente:
 
-![Status do NGINX](nginx status.png)
+![Status do NGINX](/imgs/nginx status.png)
 
 ---
 
 ### 2. Criar uma página HTML simples para ser exibida pelo servidor:
-![Página HTML no NGINX](PRINT NGINX.png)
+![Página HTML no NGINX](/imgs/PRINT NGINX.png)
 
 ---
 
@@ -142,28 +142,28 @@ Cole o script bash do monitoramento e personalize os campos:
 - `LOG_FILE`: crie um arquivo `monitoramento.log` e deixe em branco.
 - `DISCORD_WEBHOOK`: crie um webhook no Discord para receber notificações e cole seu link.
 
-![Criação de Webhook](criarwebhook.png)
-![Webhook Criado](webhookcriado.png)
+![Criação de Webhook](/imgs/criarwebhook.png)
+![Webhook Criado](/imgs/webhookcriado.png)
 
 Aqui mostra o código na íntegra com as informações requisitadas acima:
-![Script de Monitoramento](nano monitor.sh.png)
+![Script de Monitoramento](/imgs/nano monitor.sh.png)
 
 ---
 
 ### 2. O script deve:
 - Verificar se o site responde corretamente a uma requisição HTTP.
 - Criar logs das verificações em `/var/log/monitoramento.log`.
-![Log de Monitoramento](monitoramento.log rodando.png)
+![Log de Monitoramento](/imgs/monitoramento.log rodando.png)
 
 - Enviar uma notificação via Discord, Telegram ou Slack se detectar indisponibilidade.
-![Notificação no Discord](discordnotifc.png)
+![Notificação no Discord](/imgs/discordnotifc.png)
 
 ---
 
 ### 3. Configurar o script para rodar automaticamente a cada 1 minuto usando cron ou systemd timers:
 Edite o seu `crontab -e`, e recomendo a utilização da opção 1, o nano, que é mais prático.
 
-![Edição do Crontab](crontabnano.png)
+![Edição do Crontab](/imgs/crontabnano.png)
 
 Dê permissão de administrador para seu arquivo `monitor.sh` e execute-o com o seguinte comando:
 
