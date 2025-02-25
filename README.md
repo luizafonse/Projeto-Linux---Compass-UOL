@@ -51,7 +51,7 @@ Selecione uma AMI baseada em Linux (Ubuntu/Debian/Amazon Linux). Ela será o sis
 ### 3. Acessar a instância via SSH para realizar configurações futuras:
 No exemplo acima, mostro as configurações de INBOUND e OUTBOUND utilizadas para que a instância tenha seu grupo de segurança devidamente preparado.
 
-![Configuração de Security Group](/imgs/sginstance1.png)
+![Configuração de Security Group](/imgs/sginstance%201.png)
 
 #### Existem dois meios para a configuração de um Security Group:
 - Ao selecionar a aba de "Security" nos detalhes da sua instância.
