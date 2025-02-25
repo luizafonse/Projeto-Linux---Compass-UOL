@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de Servidor Web com Monitoramento</title>
+    <style>
+        body {
+            background-color: #333; /* Cinza escuro */
+            color: #fff; /* Letras brancas */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #555;
+        }
+
+        code {
+            background-color: #444;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .note {
+            color: #ffcc00; /* Amarelo para notas */
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Configuração de Servidor Web com Monitoramento</h1>
+        <h2>Objetivo:</h2>
+        <p>Desenvolver e testar habilidades em Linux, AWS e automação de processos através da configuração de um ambiente de servidor web monitorado.</p>
+
+        <h2>Etapa 1: Configuração do Ambiente</h2>
+        <h3>1. Criar uma VPC na AWS com:</h3>
+        <ul>
+            <li>2 sub-redes públicas (para acesso externo).</li>
+            <li>2 sub-redes privadas (para futuras expansões).</li>
+            <li>Uma Internet Gateway conectada às sub-redes públicas.</li>
+        </ul>
+        <img src="vpc.png" alt="Exemplo de VPC">
+
+        <h3>Crie uma Chave PEM</h3>
+        <p>Para criá-la, você pode criar na hora de criar a instância, ou até posteriormente:</p>
+        <img src="Pasted image 20250224152046.png" alt="Criação de Chave PEM">
+        <p>Vá em EC2 > Key Pairs, e clique em Criar key pair. Sua chave precisa ser RSA e ter o formato de arquivo .PEM.</p>
+        <img src="Pasted image 20250224152209.png" alt="Formato PEM">
+
+        <h3>2. Criar uma instância EC2 na AWS:</h3>
+        <img src="launchinstance.png" alt="Criação de Instância EC2">
+        <p>Opcionalmente selecionar TAGS para o monitoramento da Instância:</p>
+        <img src="tags.png" alt="Tags da Instância">
+
+        <h3>Escolher uma AMI baseada em Linux:</h3>
+        <p>Selecione uma AMI baseada em Linux (Ubuntu/Debian/Amazon Linux). Ela será o sistema em que você configurará sua instância. Aqui selecionarei a do Ubuntu Linux.</p>
+        <img src="ami.png" alt="AMI do Ubuntu">
+
+        <h3>Configuração de rede:</h3>
+        <ul>
+            <li>Instalar na sub-rede pública criada anteriormente.</li>
+            <li>Marque a VPC criada anteriormente.</li>
+            <li>Escolha uma subnet com IP público (exemplo: 10.0.0.0/20).</li>
+            <li>Em "Auto-assign public IP", marque "Enable".</li>
+            <li>Associar um Security Group EXISTENTE que permita tráfego HTTP (porta 80) e SSH (porta 22, opcional).</li>
+        </ul>
+        <img src="networkinstance.png" alt="Configuração de Rede">
+
+        <h3>Acessar a instância via SSH para realizar configurações futuras:</h3>
+        <p>No exemplo acima, mostro as configurações de INBOUND e OUTBOUND utilizadas para que a instância tenha seu grupo de segurança devidamente preparado.</p>
+        <img src="sginstance 1.png" alt="Configuração de Security Group">
+        <p>Existem dois meios para a configuração de um Security Group:</p>
+        <ul>
+            <li>Ao selecionar a aba de "Security" nos detalhes da sua instância.</li>
+            <li>Configurar fora da instância, indo em EC2 > Security Groups.</li>
+        </ul>
+        <img src="instanceseditsg.png" alt="Edição de Security Group">
+        <img src="sg.png" alt="Security Groups">
+        <p>Ao selecionar seu Security Group, ele exibirá seus detalhes, onde você deve configurar as Inbound Rules e Outbound Rules.</p>
+        <img src="Pasted image 20250224135109.png" alt="Inbound Rules">
+        <p>Suas configurações nesta seção seguem este padrão:</p>
+        <ul>
+            <li><strong>HTTP</strong> com "Anywhere - IPV4".</li>
+            <li><strong>SSH</strong> com seu "my IP".</li>
+        </ul>
+        <img src="Pasted image 20250224135226.png" alt="Configuração de Inbound Rules">
+        <p>Para configurar as Outbound Rules é o mesmo princípio:</p>
+        <img src="Pasted image 20250224135304.png" alt="Outbound Rules">
+        <p>E suas regras serão as seguintes:</p>
+        <ul>
+            <li><strong>HTTP</strong> com "Anywhere - IPV4".</li>
+            <li><strong>HTTPS</strong> com "Anywhere - IPV4".</li>
+        </ul>
+        <img src="Pasted image 20250224135331.png" alt="Configuração de Outbound Rules">
+
+        <h2>Etapa 2: Configuração do Servidor Web</h2>
+        <h3>0. Preparando Ambiente:</h3>
+        <p>Na configuração anterior, selecionamos a AMI do Ubuntu, onde você pode utilizar de um Shell de uma máquina Linux, ou fazer da maneira que realizei, pelo Visual Studio Code.</p>
+        <p>Seus requisitos são:</p>
+        <ul>
+            <li>Instalar tanto quanto as versões mais recentes do Ubuntu e do WSL na Microsoft Store.</li>
+            <li>É necessário possuir também o Visual Studio Code instalado com as seguintes extensões:</li>
+        </ul>
+        <img src="Pasted image 20250224141216.png" alt="Ubuntu na Microsoft Store">
+        <img src="WSL.png" alt="WSL na Microsoft Store">
+        <img src="Pasted image 20250224142027.png" alt="Extensões do VS Code">
+        <p>Posteriormente, selecione o ícone "><" e clique em "Connect to WSL".</p>
+        <img src="Pasted image 20250224142223.png" alt="Conexão ao WSL">
+        <img src="Pasted image 20250224142201.png" alt="Connect to WSL">
+
+        <h3>1. Instalar o servidor Nginx na EC2:</h3>
+        <p>No seu AMI, digite os comandos de atualização de pacotes e instale o NGINX.</p>
+        <p>Após a instalação, esse é o caminho para o arquivo da sua página web, onde você pode alterar para realizar as configurações do projeto.</p>
+        <p>Para verificar se seu NGINX está funcionando apropriadamente:</p>
+        <img src="nginx status.png" alt="Status do NGINX">
+    </div>
+</body>
+</html>
