@@ -213,7 +213,8 @@ Para verificar se seu NGINX está funcionando apropriadamente:
 ### 1. Criar um script em Bash ou Python para monitorar a disponibilidade do site:
 Para a utilização do Script, recomenda-se entrar conectado na máquina, executá-la e editá-la.
 
-SCRIPT:
+<details align="left">
+    <summary style="color: #9400D3;">SCRIPT: </summary>
 ```
 #!/bin/bash
 
@@ -243,7 +244,10 @@ else
     log "O seu Site $SITE_URL está offline. E seu código de resposta: $response"
     notificar_discord "🚨 ATENÇÃO: O site $SITE_URL está offline! E seu código de resposta: $response"
 fi
+</details>
+
 ```
+
 
 Cole o script bash do monitoramento e personalize os campos:
 - `SITE_URL`: coloque o IP público da sua instância EC2.
@@ -276,5 +280,7 @@ Edite o seu `crontab -e`, e recomendo a utilização da opção 1, o nano, que �
 Dê permissão de administrador para seu arquivo `monitor.sh` e execute-o com o seguinte comando:
 
 ```bash
+
+
 sudo chmod +x monitor.sh
 ./monitor.sh
