@@ -245,9 +245,10 @@ else
     log "O seu Site $SITE_URL está offline. E seu código de resposta: $response"
     notificar_discord "🚨 ATENÇÃO: O site $SITE_URL está offline! E seu código de resposta: $response"
 fi
+```
 </details>
 
-```
+
 
 
 Cole o script bash do monitoramento e personalize os campos:
