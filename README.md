@@ -37,7 +37,7 @@ Desenvolver e testar habilidades em Linux, AWS e automação de processos atrav�
 </div>
 
 > [!IMPORTANT]
-> As únicas aplicações específicas que se pede a utilização no projeto são o **GitHub** e o **Amazon Web Services**. As outras foram questão de preferência!
+> Únicas aplicações obrigatórias para utilização no projeto são o **GitHub** e o **Amazon Web Services**. As outras foram questão de preferência.
 
 > [!TIP]
 > - **GitHub:** Utilizado para a documentação do projeto.
