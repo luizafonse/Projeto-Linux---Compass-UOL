@@ -215,7 +215,8 @@ Para a utilização do Script, recomenda-se entrar conectado na máquina, execut
 
 <details align="left">
     <summary style="color: #9400D3;">SCRIPT: </summary>
-```
+
+```bash
 #!/bin/bash
 
 # Configurações
@@ -278,8 +279,8 @@ Edite o seu `crontab -e`, e recomendo a utilização da opção 1, o nano, que �
 ![Edição do Crontab](/imgs/crontabnano.png)
 
 Dê permissão de administrador para seu arquivo `monitor.sh` e execute-o com o seguinte comando:
-
-```bash
+```
+bash
 
 
 sudo chmod +x monitor.sh
