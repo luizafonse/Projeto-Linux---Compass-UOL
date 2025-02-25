@@ -170,6 +170,12 @@ Geralmente só de instalar a "Remote - SSH" e a "WSL" todos os outros são insta
 2. Copie a última linha do exemplo de conexão SSH.
 3. No terminal do VS Code, cole o comando e conecte-se à instância.
 
+Rode estes comandos para mover a sua Chave para os arquivos locais da máquina.
+```bash
+cd /mnt/c/Users/"Seu usuário"/Desktop/ <-- Usuário da sua máquina/windows - seu ponto de montagem da máquina
+mv chave3.pem /home/"Seu usuário"/ <-- Usuário da WSL 
+```
+
 Sim, para se conectar a sua AMI da instância é um simples copia e cola. Mas guarde bem o seu link, pois com ele qualquer um acessa e configura sua instância. Lembre-se também de dar permissão para sua chave PEM, usando o comando `chmod` como mostra abaixo.
 
 ![Configuração SSH](/imgs/configssh.png)
@@ -178,8 +184,18 @@ Sim, para se conectar a sua AMI da instância é um simples copia e cola. Mas gu
 
 ### 1. Instalar o servidor Nginx na EC2:
 No seu AMI, digite os comandos de atualização de pacotes e instale o NGINX.
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install nginx
+sudo systemctl status nginx
+```
 
 Após a instalação, esse é o caminho para o arquivo da sua página web, onde você pode alterar para realizar as configurações do projeto.
+```bash
+cd /var/www/html/
+nano index.html
+```
 
 Para verificar se seu NGINX está funcionando apropriadamente:
 
@@ -196,6 +212,38 @@ Para verificar se seu NGINX está funcionando apropriadamente:
 
 ### 1. Criar um script em Bash ou Python para monitorar a disponibilidade do site:
 Para a utilização do Script, recomenda-se entrar conectado na máquina, executá-la e editá-la.
+
+SCRIPT:
+```
+#!/bin/bash
+
+# Configurações
+SITE_URL="http://localhost"
+LOG_FILE="/var/log/monitoramento.log"
+DISCORD_WEBHOOK="link_do_webhook"
+
+# Função para registrar logs
+log() {
+    local message="$1"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$LOG_FILE"
+}
+
+# Função para enviar notificação no Discord
+notificar_discord() {
+    local message="$1"
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$message\"}" "$DISCORD_WEBHOOK"
+}
+
+# Verifica se o site está disponível
+response=$(curl -o /dev/null -s -w "%{http_code}" "$SITE_URL")
+
+if [[ "$response" -eq 200 ]]; then
+    log "O seu Site $SITE_URL está online. E seu código de resposta: $response"
+else
+    log "O seu Site $SITE_URL está offline. E seu código de resposta: $response"
+    notificar_discord "🚨 ATENÇÃO: O site $SITE_URL está offline! E seu código de resposta: $response"
+fi
+```
 
 Cole o script bash do monitoramento e personalize os campos:
 - `SITE_URL`: coloque o IP público da sua instância EC2.
