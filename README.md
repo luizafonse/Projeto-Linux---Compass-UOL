@@ -293,3 +293,33 @@ sudo chmod +x monitor.sh
 ./monitor.sh
 ```
 
+<details align="left">
+    <summary style="color: #9400D3;">Documentação Adicional: </summary>
+
+## Sites para auxílio:
+
+- Básico shell: https://diegomariano.com/shell-script-um-guia-basico/
+- GODSCRIPT: https://devhints.io/bash
+- Discord Webhooks: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
+- Solução de problemas: https://stackexchange.com/
+- Tutorial terraform(base): https://www.youtube.com/watch?v=bIPF_hzmQGE&list=PLWQmZVQayUUIgSmOj3GPH2BJcn0hOzIaP&index=2&ab_channel=CleberGasparoto
+- Comando curl(base): https://www.hostinger.com.br/tutoriais/comando-curl-linux
+- Sintaxe GitHub(base): https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+</details>
+
+---
+
+## Integrantes:
+
+<font face="Ballet" style="color: #9400D3;">
+<footer>
+<p style="font-size:60px">
+
+<p align="center">Afonso Luiz</p>
+
+<p align="center">Bruno Bacchi</p>
+
+<p align="center">Flávio Cavalcante</p>
+</p>
+</footer>
+</font>
