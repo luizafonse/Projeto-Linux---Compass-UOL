@@ -206,14 +206,14 @@ Cole o script bash do monitoramento e personalize os campos:
 ![Webhook Criado](/imgs/webhookcriado.png)
 
 Aqui mostra o código na íntegra com as informações requisitadas acima:
-![Script de Monitoramento](/imgs/nano monitor.sh.png)
+![Script de Monitoramento](/imgs/nano%20monitor.sh.png)
 
 ---
 
 ### 2. O script deve:
 - Verificar se o site responde corretamente a uma requisição HTTP.
 - Criar logs das verificações em `/var/log/monitoramento.log`.
-![Log de Monitoramento](/imgs/monitoramento.log rodando.png)
+![Log de Monitoramento](/imgs/monitoramento.log%20rodando.png)
 
 - Enviar uma notificação via Discord, Telegram ou Slack se detectar indisponibilidade.
 ![Notificação no Discord](/imgs/discordnotifc.png)
