@@ -183,12 +183,12 @@ Após a instalação, esse é o caminho para o arquivo da sua página web, onde 
 
 Para verificar se seu NGINX está funcionando apropriadamente:
 
-![Status do NGINX](/imgs/nginx status.png)
+![Status do NGINX](/imgs/nginx%20status.png)
 
 ---
 
 ### 2. Criar uma página HTML simples para ser exibida pelo servidor:
-![Página HTML no NGINX](/imgs/PRINT NGINX.png)
+![Página HTML no NGINX](/imgs/PRINT%20NGINX.png)
 
 ---
 
