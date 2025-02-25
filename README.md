@@ -51,13 +51,13 @@ Selecione uma AMI baseada em Linux (Ubuntu/Debian/Amazon Linux). Ela será o sis
 ### 3. Acessar a instância via SSH para realizar configurações futuras:
 No exemplo acima, mostro as configurações de INBOUND e OUTBOUND utilizadas para que a instância tenha seu grupo de segurança devidamente preparado.
 
-![Configuração de Security Group](/imgs/sginstance 1.png)
+![Configuração de Security Group](/imgs/sginstance1.png)
 
 #### Existem dois meios para a configuração de um Security Group:
-1. Ao selecionar a aba de "Security" nos detalhes da sua instância.
-2. Configurar fora da instância, indo em EC2 > Security Groups.
-
+- Ao selecionar a aba de "Security" nos detalhes da sua instância.
 ![Edição de Security Group](/imgs/instanceseditsg.png)
+
+- Ou Configurar fora da instância, indo em EC2 > Security Groups.
 ![Security Groups](/imgs/sg.png)
 
 #### Ao selecionar seu Security Group, ele exibirá seus detalhes, onde você deve configurar as Inbound Rules:
