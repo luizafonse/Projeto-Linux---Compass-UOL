@@ -61,22 +61,22 @@ No exemplo acima, mostro as configurações de INBOUND e OUTBOUND utilizadas par
 ![Security Groups](sg.png)
 
 #### Ao selecionar seu Security Group, ele exibirá seus detalhes, onde você deve configurar as Inbound Rules:
-![Inbound Rules](Pasted image 20250224135109.png)
+![Inbound Rules](inboundrules.png)
 
 #### Suas configurações nesta seção seguem este padrão:
 - **HTTP** com "Anywhere - IPV4".
 - **SSH** com seu "my IP".
 
-![Configuração de Inbound Rules](Pasted image 20250224135226.png)
+![Configuração de Inbound Rules](editinboundrules.png)
 
 #### Para configurar as Outbound Rules é o mesmo princípio:
-![Outbound Rules](Pasted image 20250224135304.png)
+![Outbound Rules](outboundrules.png)
 
 #### E suas regras serão as seguintes:
 - **HTTP** com "Anywhere - IPV4".
 - **HTTPS** com "Anywhere - IPV4".
 
-![Configuração de Outbound Rules](Pasted image 20250224135331.png)
+![Configuração de Outbound Rules](editoutboundrules.png)
 
 Isso serve para fazer com que sua Instância tenha as configurações de segurança devidas que permitam a iniciação de um serviço, como o NGINX no nosso caso.  
 As Inbound rules são as configurações de entrada, e as Outbounds de saída. Se elas não forem devidamente alteradas, seu projeto não funcionará.
@@ -90,20 +90,20 @@ Na configuração anterior, selecionamos a AMI do Ubuntu, onde você pode utiliz
 
 #### Seus requisitos são:
 - Instalar tanto quanto as versões mais recentes do Ubuntu e do WSL na Microsoft Store:
-![Ubuntu na Microsoft Store](Pasted image 20250224141216.png)
+![Ubuntu na Microsoft Store](ubuntustore.png)
 ![WSL na Microsoft Store](WSL.png)
 
 - É necessário possuir também o Visual Studio Code instalado com as seguintes extensões:
-![Extensões do VS Code](Pasted image 20250224142027.png)
-![Extensões do VS Code](Pasted image 20250224142035.png)
+![Extensões do VS Code](extensoesvscode.png)
+![Extensões do VS Code](extensoesvscode2.png)
 
 Geralmente só de instalar a "Remote - SSH" e a "WSL" todos os outros são instalados, mas é interessante verificar.
 
 #### Posteriormente, selecione o ícone "><":
-![Conexão ao WSL](Pasted image 20250224142223.png)
+![Conexão ao WSL](aspinhas.png)
 
 #### E, clique em Connect to WSL:
-![Connect to WSL](Pasted image 20250224142201.png)
+![Connect to WSL](connecttowsl.png)
 
 #### Retorne por um instante na AWS:
 1. No EC2, marque sua instância e clique em "Connect".
