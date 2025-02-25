@@ -257,6 +257,7 @@ Cole o script bash do monitoramento e personalize os campos:
 - `DISCORD_WEBHOOK`: crie um webhook no Discord para receber notificações e cole seu link.
 
 ![Criação de Webhook](/imgs/criarwebhook.png)
+<br><br>
 ![Webhook Criado](/imgs/webhookcriado.png)
 
 Aqui mostra o código na íntegra com as informações requisitadas acima:
