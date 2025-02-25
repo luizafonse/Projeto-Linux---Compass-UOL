@@ -16,23 +16,23 @@ Desenvolver e testar habilidades em Linux, AWS e automação de processos atrav�
   </a>&ensp;
 
   <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjKuL74ltWLAxXoEUQIHY40KqwYABAAGgJkeg&co=1&ase=2&gclid=CjwKCAiA5eC9BhAuEiwA3CKwQp-uZ-EhfKVs_yaTVCZmvhF8olLyCz4sF_rQXc-KTkKjJ6zjkq_KbRoCmx0QAvD_BwE&ei=46i4Z7zJLbLb5OUP_NnOYQ&ohost=www.google.com&cid=CAESVeD2mSl7f0Xe0yyJImaMygYDsAuUvVqE8TXk7HbEuO8df6HhHkyj13nbeuQIUd6NDilzCovM3hpvmJWnXIKlBj1rDcr0Uva9DVYGZCTyi2T-YG-tn0A&sig=AOD64_3dqO5hHHx21zCm5ROWF8TSPV62pA&q&sqi=2&nis=4&adurl&ved=2ahUKEwj8xrT4ltWLAxWyLbkGHfysMwwQ0Qx6BAgIEAE">
-    <img src="/imgs/amazonlogo.png" alt="Amazon Web Services" width="150" height="150">
+    <img src="/imgs/amazonlogo.png" alt="Amazon Web Services" width="100" height="100">
   </a>&ensp;
 
   <a href="https://apps.microsoft.com/home?hl=pt-BR&gl=BR">
-    <img src="/imgs/micstorelogo.png" alt="Microsoft Store" width="150" height="150">
+    <img src="/imgs/micstorelogo.png" alt="Microsoft Store" width="100" height="100">
   </a>&ensp;
 
   <a href="https://www.microsoft.com/store/productId/9P9TQF7MRM4R?ocid=libraryshare">
-    <img src="/imgs/wsllogo.png" alt="WSL" width="150" height="150">
+    <img src="/imgs/wsllogo.png" alt="WSL" width="100" height="100">
   </a>&ensp;
 
   <a href="https://code.visualstudio.com/">
-    <img src="/imgs/vscodelogo.png" alt="Visual Studio Code" width="150" height="150">
+    <img src="/imgs/vscodelogo.png" alt="Visual Studio Code" width="100" height="100">
   </a>&ensp;
 
   <a href="https://nginx.org/">
-    <img src="/imgs/nginxlogo.png" alt="Nginx" width="150" height="150">
+    <img src="/imgs/nginxlogo.png" alt="Nginx" width="100" height="100">
   </a>&ensp;
 </div>
 
