@@ -280,6 +280,12 @@ Edite o seu `crontab -e`, e recomendo a utilização da opção 1, o nano, que �
 
 ![Edição do Crontab](/imgs/crontabnano.png)
 
+Adicione a linha:
+```bash
+*/1 * * * * /var/www/html/monitor.sh
+```
+
+
 Dê permissão de administrador para seu arquivo `monitor.sh` e execute-o com o seguinte comando:
 
 ```bash
